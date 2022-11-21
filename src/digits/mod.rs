@@ -1,1 +1,1 @@
-pub mod get_digits;
+pub mod digits;

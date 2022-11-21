@@ -5,7 +5,6 @@ pub fn get_digits(num: u128) -> Vec<u32> {
         .collect()
 }
 
-
 #[cfg(test)]
 mod tests {
     use super::get_digits;
@@ -16,5 +15,4 @@ mod tests {
         assert_eq!(get_digits(5032), vec![5, 0, 3, 2]);
         assert_eq!(get_digits(9), vec![9]);
     }
-
 }

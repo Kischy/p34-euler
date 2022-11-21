@@ -21,6 +21,15 @@ impl FactorialCalculator {
 
         return self.factorial(num - 1) * num;
     }
+
+    pub fn is_curious_factorial(&mut self, num: u128) -> bool {
+        if num == 1 || num == 2 {
+            return false;
+        }
+        let digits = crate::digits::digits::get_digits(num);
+        let fac_sum: u128 = digits.iter().map(|x| self.factorial(u128::from(*x))).sum();
+        fac_sum == num
+    }
 }
 
 #[cfg(test)]
@@ -38,5 +47,14 @@ mod tests {
             fac_calculator.factorial(9),
             1 * 2 * 3 * 4 * 5 * 6 * 7 * 8 * 9
         );
+    }
+
+    #[test]
+    fn is_curious_factorial() {
+        let mut fac_calculator = FactorialCalculator::new();
+        assert!(fac_calculator.is_curious_factorial(145));
+        assert!(!fac_calculator.is_curious_factorial(144));
+        assert!(!fac_calculator.is_curious_factorial(1));
+        assert!(!fac_calculator.is_curious_factorial(2));
     }
 }

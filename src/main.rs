@@ -1,3 +1,4 @@
+mod digits;
 mod factorial;
 
 fn main() {
