@@ -1,6 +1,6 @@
 use std::collections::HashMap;
 
-struct FactorialCalculator {
+pub struct FactorialCalculator {
     known_factorials: HashMap<u128, u128>,
 }
 
